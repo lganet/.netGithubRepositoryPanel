@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+<div ng-controller="headerCtrl">
+    <nav class="navbar navbar-default navbar-fixed-top cor" role="navigation" ng-hide="EhLogin">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand cor" href="#" ng-click="Home();">Repositórios GitHub</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed = true">
+
+            <ul class="nav navbar-nav">
+                <li ng-class="{active: EhAtual('MeusRepositorios')}"><a href="#" ng-click="ExibirMeusRepositorios();" class="cor">Meus Repositórios</a></li>
+                <li ng-class="{active: EhAtual('Pesquisar')}"><a href="#" ng-click="PesquisaRepositorios();" class="cor">Perquisar</a></li>
+                <li ng-class="{active: EhAtual('Favoritos')}"><a href="#" ng-click="Favoritos();" class="cor">Favoritos</a></li>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+                <li> <a href="https://github.com/lganet" aria-hidden="true" class="cor"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> Github - lganet</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</div>

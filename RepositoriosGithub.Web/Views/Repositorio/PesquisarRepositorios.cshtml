@@ -1,0 +1,82 @@
+﻿@model RepositoriosGithub.Web.Models.PesquisaGithub
+
+<div ng-controller="pesquisaCtrl">
+    <form name="pesquisaGit" id="pesquisaGit">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="input-group text-center">
+                        <input type="text" class="form-control" ng-keypress="Pesquisar(1, $event)" placeholder=" informe o repositório ou parte dele ..." ng-required="true" ng-model="Repositorio" ng-init="Repositorio='@Model.Paginacao.TermoPesquisado'">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" ng-disabled="pesquisaGit.$invalid" ng-click="Pesquisar()">Pesquisar</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+ 
+    
+    @if (Model.Paginacao.Pesquisou)
+{
+
+    <div class="EspacoEntrePesquisaResultado">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Resultado Pesquisa</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="list-group">
+                    @foreach (var repositorio in Model.ResultadoPesquisa.items)
+                    {
+                        <div class="list-group-item">
+                            <span class="glyphicon glyphicon-list-alt"></span> <a href="#" ng-click="ExibirDetalhes('@repositorio.owner.login', '@repositorio.name')">@repositorio.full_name</a>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+        <div>
+            <nav>
+                <ul class="pager">
+                    <li class="previous @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "") "><a href="#" ng-click="Pesquisar(1)"><span aria-hidden="true">&larr;</span> Primeira</a></li>
+                    <li @(Model.Paginacao.PaginaAtual == 1 ? "class=disabled" : "")><a href="#" ng-click="Pesquisar(@(Model.Paginacao.PaginaAtual-1))">Anterior</a></li>
+                    <li @(Model.Paginacao.QuantidadePaginas == Model.Paginacao.PaginaAtual ? "class=\"disabled\"" : "")><a href="#" ng-click="Pesquisar(@(Model.Paginacao.PaginaAtual+1))">Próxima</a></li>
+                    <li class="next @(Model.Paginacao.QuantidadePaginas == Model.Paginacao.PaginaAtual ? "disabled" : "")"><a href="#" ng-click="Pesquisar(@Model.Paginacao.QuantidadePaginas)">Última <span aria-hidden="true">&rarr;</span></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="col-xs-12 text-center"><h5>Exibindo página @Model.Paginacao.PaginaAtual/@Model.Paginacao.QuantidadePaginas <small><a href="#" ng-click="MostrarNumerica();">Exbir paginação númerica?</a></small></h5></div>
+
+        <div class="container" ng-show="ExibirNumerica">
+            <nav>
+                <div class="text-center">
+                    <ul class="pagination pagination-sm">
+                        <li @(Model.Paginacao.PaginaAtual == 1 ? "class=disabled" : "")><a href="#" ng-click="Pesquisar(@(Model.Paginacao.PaginaAtual-1))" aria-label=" anterior"><span aria-hidden="true">«</span></a></li>
+                        @for (var i = 1; i <= Model.Paginacao.QuantidadePaginas; i++)
+                        {
+                            if (Model.Paginacao.PaginaAtual == i)
+                            {
+                                <li class="active"><a href="#">@i <span class="sr-only">(current)</span></a></li>
+                            }
+                            else
+                            {
+                                <li><a href="#" ng-click="Pesquisar(@i)">@i</a></li>
+                            }
+
+                        }
+                        <li @(Model.Paginacao.QuantidadePaginas == Model.Paginacao.PaginaAtual ? "class=\"disabled\"" : "")><a href="#" ng-click="Pesquisar(@(Model.Paginacao.PaginaAtual+1))" aria-label="Próxima"><span aria-hidden="true">»</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+    }
+</div>

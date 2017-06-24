@@ -1,0 +1,168 @@
+
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+}
+.mb{
+  border-color: red;
+  border-style: solid;
+}
+
+/* NavBar
+-------------------------------------------------- */
+body {
+  width: 100%;
+  padding-top: 60px; /* devido ao nav bar */
+  /*min-height: 2000px;*/
+  margin-bottom: 90px; /* devido ao footer */
+}
+
+div.navbar-collapse.collapse {
+	display: block;
+	overflow: hidden;
+	max-height: 0px;
+	-webkit-transition: max-height .3s ease;
+	-moz-transition: max-height .3s ease;
+	-o-transition: max-height .3s ease;
+	transition: max-height .3s ease;
+}
+div.navbar-collapse.collapse.in {
+  max-height: 2000px;
+}
+ul.navbar-right {
+  padding-right: 10px;
+}
+.cor{
+  background: #095a8f;
+  color: #ffffff !important;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  padding-top: 10px;
+  background-color: #f5f5f5;
+}
+/*Define padrão para titulo das paginas*/
+.container h2{
+  margin-top: 4%;
+  margin-left: 4%;
+  font-size: 25pt;
+  font-family: Geoma, sans-serif;
+  color: #4f7ce1;
+  font-weight: bold;
+}
+
+
+.glyphicon.glyphicon-star-empty {
+    font-size: 15px;
+}
+
+.glyphicon.glyphicon-star {
+    color: yellow;
+    font-size: 15px;
+}
+
+.change-icon > .glyphicon:nth-child(2) {
+  display: none;
+}
+.change-icon:hover > .glyphicon:nth-child(1) {
+  display: none;
+}
+.change-icon:hover > .glyphicon:nth-child(2) {
+  display: inherit;
+}
+
+
+
+.ngdialog {
+  position: fixed;  
+  z-index: 10000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.ngdialog-overlay {
+  position: fixed;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+  -webkit-animation: ngdialog-fadein 0.5s;
+  animation: ngdialog-fadein 0.5s;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    background-color: #518CD4 !important;
+    font-weight: bold;
+}
+
+.footer{
+    background-color: #095a8f !important;
+    
+}
+
+.footer>.container>.text-muted{
+    color: #fff !important;
+}
+
+.jumbotron{
+    background-color: rgba(77, 133, 167, 0.67) !important;
+}
+
+.EspacoEntrePesquisaResultado {
+    padding-top: 10px;
+}
+
+.list-group-item{
+    font-family:  Arial !important;
+}
+
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+    box-sizing: border-box;
+    background-color: #fff !important;
+}
+.bs-callout-info {
+    border-left-color: #1b809e;
+    background-color: #fff !important;
+}
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #095a8f;
+    border-left-width: 5px;
+    border-radius: 3px;
+    background-color: #fff !important;
+    
+}
+
+.nomeContribuidores>a:link{
+    color:#E2E5FB; background-color:transparent; text-decoration:none
+}
+.nomeContribuidores>a:visited{
+    color:pink; background-color:transparent; text-decoration:none
+}
+.nomeContribuidores>a:hover   {
+    color:#fff; background-color:transparent; text-decoration:underline
+}
+.nomeContribuidores>a:active  {
+    color:yellow; background-color:transparent; text-decoration:underline
+
+}

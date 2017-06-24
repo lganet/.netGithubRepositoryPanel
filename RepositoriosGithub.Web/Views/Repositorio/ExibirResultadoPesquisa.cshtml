@@ -1,0 +1,21 @@
+﻿@model RepositoriosGithub.Model.Entidades.GitSearch
+@{
+    Layout = null;
+}
+
+<div ng-controller="repositoriosCtrl">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Resultado Pesquisa</h3>
+        </div>
+        <div class="panel-body">
+            <ul>
+                @foreach (var repositorio in Model.items)
+                {
+                    <li> <a href="#" ng-click="ExibirDetalhes('@repositorio.owner.login', '@repositorio.name')">@repositorio.owner.login/@repositorio.name</a></li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>

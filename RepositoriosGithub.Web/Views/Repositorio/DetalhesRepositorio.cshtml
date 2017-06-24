@@ -1,0 +1,32 @@
+﻿@model  RepositoriosGithub.Model.Entidades.RootObject
+
+
+<div ng-controller="detalhesRepositorioCtrl" ng-init="Favorito='@ViewBag.Favorito'">
+    Detalhes do Repositório
+    <div class="bs-callout bs-callout-info">
+        <ul>
+            <li><span class="glyphicon glyphicon-camera"></span>&nbsp; <img src="@Model.owner.avatar_url" width="32" height="32" /> </li>
+            <li><span class="glyphicon glyphicon-list-alt"></span>&nbsp; Repositório: <strong> @Model.name</strong> </li>
+            <li><span class="glyphicon glyphicon-tags"></span>&nbsp; Descrição: <strong>@Model.description </strong></li>
+            <li><span class="glyphicon glyphicon-cog"></span>&nbsp; Linguage: <strong>@Model.language </strong></li>
+            <li><span class="glyphicon glyphicon-calendar"></span>&nbsp; Ultima Atualização: <strong> @(DateTimeOffset.Parse(Model.updated_at).ToString("dd/MM/yyyy HH:mm:ss"))</strong> </li>
+            <li><span class="glyphicon glyphicon-user"></span>&nbsp; Dono do Repositório: <strong>@Model.owner.login </strong></li>
+        </ul>
+    </div>
+    <div class="well well-sm">
+        <span class="change-icon">
+   
+                <i ng-class="{glyphicon: true, 'glyphicon-star-empty': !Favorito, 'glyphicon-star': Favorito}"></i>
+                <i ng-class="{glyphicon: true, 'glyphicon-star-empty': Favorito, 'glyphicon-star': !Favorito}"></i>
+            
+            <a href="#" ng-click="AdcionarAoFavoritos('@Model.owner.login', '@Model.name', @Model.id);"> {{LabelFavoritos()}}</a>
+        </span>
+    </div>
+
+    <br />
+
+    <div ng-include="'/Repositorio/ContribuidoresRepositorio?usuario=@(Model.owner.login)&repositorio=@Model.name'">
+
+    </div>
+
+</div>

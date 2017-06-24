@@ -1,0 +1,19 @@
+﻿@model List<RepositoriosGithub.Model.Entidades.RootObject>
+
+<div ng-controller="repositoriosCtrl">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Repostiório de: @ViewBag.Usuario</h3>
+        </div>
+        <div class="panel-body">
+            <div class="list-group">
+                @foreach (var repositorio in Model)
+                {
+                    <div class="list-group-item">
+                        <span class="glyphicon glyphicon-list-alt"></span> <a href="#" ng-click="ExibirDetalhes('@repositorio.owner.login', '@repositorio.name')"> @repositorio.name </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
