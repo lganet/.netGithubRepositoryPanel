@@ -1,4 +1,4 @@
-# Dillinger
+# Github Repository
 
 This project use Gitbug's APIs to access any Github repository.
 
